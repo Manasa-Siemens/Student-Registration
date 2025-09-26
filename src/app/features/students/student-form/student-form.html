@@ -1,0 +1,61 @@
+<div class="container">
+  <h2>{{ title }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <div class="form-group">
+      <label for="name" class="required">Full Name</label>
+      <input id="name" type="text" formControlName="name" />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="dob" class="required">Date of Birth</label>
+        <input id="dob" type="date" formControlName="dob" />
+      </div>
+      <div class="form-group">
+        <label for="gender" class="required">Gender</label>
+        <select id="gender" formControlName="gender">
+          <option value="">Select Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="email" class="required">Email</label>
+        <input id="email" type="email" formControlName="email" />
+      </div>
+      <div class="form-group">
+        <label for="phno" class="required">Phone Number</label>
+        <input id="phno" type="number" formControlName="phone" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address" class="required">Address</label>
+      <input id="address" type="text" formControlName="address" />
+    </div>
+
+    <div class="form-group">
+      <label for="course" class="required">Select Course</label>
+      <input id="course" type="text" formControlName="course" list="courses" />
+      <datalist id="courses">
+        <option value="Computer Science"></option>
+        <option value="Information Technology"></option>
+        <option value="Electronics & Communication"></option>
+        <option value="Mechanical Engineering"></option>
+        <option value="Civil Engineering"></option>
+        <option value="Electrical Engineering"></option>
+        <option value="Business Administration"></option>
+        <option value="Commerce"></option>
+        <option value="Arts"></option>
+      </datalist>
+    </div>
+
+    <button type="submit">{{ idToEdit ? 'Update Student' : 'Save Student' }}</button>
+    <button type="button" style="margin-left:8px" (click)="cancel()">Cancel</button>
+  </form>
+</div>

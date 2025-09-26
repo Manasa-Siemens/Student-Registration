@@ -1,0 +1,43 @@
+<div class="container">
+  <h2>Student Registration System</h2>
+
+  <button (click)="addNew()">+ Add New Student</button>
+
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Course</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let s of students">
+        <td>{{ s.name }}</td>
+        <td>{{ s.dob }}</td>
+        <td>{{ s.gender }}</td>
+        <td>{{ s.email }}</td>
+        <td>{{ s.phone }}</td>
+        <td>{{ s.address }}</td>
+        <td>{{ s.course }}</td>
+        <td>
+          <button class="action-btn edit-btn" (click)="edit(s.id)">Edit</button>
+          <button class="action-btn delete-btn" (click)="delete(s.id)">Delete</button>
+        </td>
+      </tr>
+
+      <tr *ngIf="!loading && students.length === 0">
+        <td colspan="8">No students found.</td>
+      </tr>
+      <tr *ngIf="loading">
+        <td colspan="8">Loading...</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
